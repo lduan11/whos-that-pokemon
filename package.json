@@ -1,0 +1,26 @@
+{
+  "name": "final-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lduan11/final-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lduan11/final-app/issues"
+  },
+  "homepage": "https://github.com/lduan11/final-app#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "browser-sync": "^2.26.14",
+    "bulma": "^0.9.2",
+    "firebase": "^8.4.3",
+    "jquery": "^3.6.0"
+  }
+}

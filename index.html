@@ -3,12 +3,96 @@
     <head>  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>426 Final Project</title>
+        <title>Who's that Pokémon?</title>
 
+        <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"/>
         <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
-        <p>hello</p>
+        <nav class="navbar is-info is-transparent">
+            <div class="navbar-brand">
+                <!-- <a class="title navbar-item">
+                    Who's that Pokémon?
+                </a> -->
+                <a><img src="https://fontmeme.com/permalink/210503/416b358c8ee659d8c307ea69238452b9.png"></a>
+            </div>
+
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        Pokédex
+                    </a>
+                    <a class="navbar-item">
+                        Login
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container has-text-centered">
+            <p class="is-size-6"><strong>HOW TO PLAY:</strong></p>
+            <p>Guess the <strong>Pokémon</strong> from its silhouette!</p>
+            <p>Mode: Unranked</p>
+        </div>
+        
+        <div class="container">
+            <div class="guess-container"></div>
+                <div class="columns is-multiline is-centered">
+                    <div class="column is-half" id="root"></div>
+                    <div class="column has-text-left">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Who's that Pokémon?">
+                                        <button id="skipButton" class="button is-warning" onclick="handleSkipButtonClick()">Skip</button>
+                                        <button id="guessButton" class="button" onclick="handleGuessButtonClick()">Guess!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="content">
+                                    <p>Score: 0</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+
+        <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBCeqQAWpHAHlV8swbOC-uyNy2g7sEzLe0",
+            authDomain: "final-app-a98c2.firebaseapp.com",
+            projectId: "final-app-a98c2",
+            storageBucket: "final-app-a98c2.appspot.com",
+            messagingSenderId: "492745935435",
+            appId: "1:492745935435:web:cbdc3f3b80533d881c1bce",
+            measurementId: "G-0NM5XL8RRS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        </script>
+        <script src="node_modules/axios/dist/axios.min.js"></script>
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="js/requests.js"></script>
+        <script src="js/render.js"></script>
     </body>
 </html>
