@@ -25,7 +25,7 @@ let getRandomPokemonGuess = async function (id) {
 
     $("#skipButton").off();
     $("#skipButton").on('click', function () {
-        handleSkipButtonClick();
+        handleSkipButtonClick(result.data);
     });
 
     $("#guessField").off();
@@ -34,6 +34,10 @@ let getRandomPokemonGuess = async function (id) {
             handleGuessButtonClick(result.data);
         }
     });
+
+    // Enable buttons
+    $('#skipButton').attr("disabled", false);
+    $('#guessButton').attr("disabled", false);
 }
 
 getRandomPokemonGuess(getRandomIndex(1,152));

@@ -16,22 +16,28 @@ a img {
 }
 
 .guess-container {
-    width: 80%;
+    width: 75%;
 }
 
 .card {
-    border-radius: 20%;
+    border-radius: 10%;
     width: 50%;
     text-align: center;
     margin-bottom: 30px;
+    border: 1px solid #ffcb05;
+}
+
+#guessCard {
+    border: 1px solid #7a7dd1;
+}
+
+#infoCard {
+    border: 2px solid #ffcb05;
+    border-radius: 20%;
 }
 
 #guessCard {
     float: right;
-}
-
-.scoreDiv {
-    margin-bottom: 10px;
 }
 
 .button {
