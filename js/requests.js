@@ -16,6 +16,24 @@ let getRandomPokemonGuess = async function (id) {
 
     console.log(result.data);
     root.appendChild(renderPokemonGuessCard(result.data));
+
+    // Reassign event listeners
+    $("#guessButton").off();
+    $("#guessButton").on('click', function () {
+        handleGuessButtonClick(result.data);
+    });
+
+    $("#skipButton").off();
+    $("#skipButton").on('click', function () {
+        handleSkipButtonClick();
+    });
+
+    $("#guessField").off();
+    $('#guessField').keypress(function (e) {
+        if (e.key === 'Enter') {
+            handleGuessButtonClick(result.data);
+        }
+    });
 }
 
 getRandomPokemonGuess(getRandomIndex(1,152));

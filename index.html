@@ -45,9 +45,9 @@
                             <div class="card-content">
                                 <div class="content">
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Who's that Pokémon?">
-                                        <button id="skipButton" class="button is-warning" onclick="handleSkipButtonClick()">Skip</button>
-                                        <button id="guessButton" class="button" onclick="handleGuessButtonClick()">Guess!</button>
+                                        <input class="input" id="guessField" type="text" placeholder="Who's that Pokémon?">
+                                        <button id="skipButton" class="button is-warning">Skip</button>
+                                        <button id="guessButton" class="button">Guess!</button>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,8 @@
                         <div class="card">
                             <div class="card-content">
                                 <div class="content">
-                                    <p>Score: 0</p>
+                                    <p><strong>Correct:</strong> <span id="correctCount">0</span></p>
+                                    <p><strong>Skipped:</strong> <span id="skipCount">0</span></p>
                                 </div>
                             </div>
                         </div>
