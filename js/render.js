@@ -66,7 +66,7 @@ let handleGuessButtonClick = function (pokemon) {
         }
         
         // Update info text
-        infoText.html(`Correct! It was ${canonName}!`)
+        infoText.html(`Correct! It was <strong>${canonName}</strong>!`)
 
         // Fade in info text
         infoCard.fadeIn();
@@ -75,15 +75,43 @@ let handleGuessButtonClick = function (pokemon) {
         $('#guessImage').removeClass('silhouette');
 
         setTimeout(function() {
-            infoCard.fadeOut();
+            // Enable buttons
+            $('#skipButton').attr("disabled", false);
+            $('#guessButton').attr("disabled", false);
 
             // Render new guess card
             getRandomPokemonGuess(getRandomIndex(1,152));
         }, 3000);
     }
 
+    let handleIncorrectGuess = async function () {
+        // Disable guess button
+        $('#guessButton').attr("disabled", true);
+
+        let encouragement = await getRandomEncouragement();
+
+        // Fade in error text
+        $('#errorText').html("Try again! " + `${encouragement}`);
+        $('#errorText').fadeIn();
+
+        setTimeout(function() {
+            // Fade out error text
+            $('#errorText').fadeOut();
+
+            // Enable guess button
+            $('#guessButton').attr("disabled", false);
+        }, 2500);
+    }
+
     if (guessField.val().length == 0) {
-        console.log("empty");
+        // Fade in error text
+        $('#errorText').html("Guess can't be empty!");
+        $('#errorText').fadeIn();
+
+        // Fade out error text
+        setTimeout(function() {
+            $('#errorText').fadeOut();
+        }, 1000);
     } else {
         switch(pokemon.id) { // pokemon.name doesn't match canonical name
             // Nidoran (female)
@@ -91,7 +119,7 @@ let handleGuessButtonClick = function (pokemon) {
                 if (guessField.val().toLowerCase() == 'nidoran') {
                     handleCorrectGuess(pokemon);
                 } else {
-                    console.log("you suck");
+                    handleIncorrectGuess();
                 }
                 break;
 
@@ -100,7 +128,7 @@ let handleGuessButtonClick = function (pokemon) {
                 if (guessField.val().toLowerCase() == 'nidoran') {
                     handleCorrectGuess(pokemon);
                 } else {
-                    console.log("you suck");
+                    handleIncorrectGuess();
                 }
                 break;
 
@@ -109,7 +137,7 @@ let handleGuessButtonClick = function (pokemon) {
                 if (guessField.val().toLowerCase() == "farfetch'd" || guessField.val().toLowerCase() == 'farfetchd') {
                     handleCorrectGuess(pokemon);
                 } else {
-                    console.log("you suck");
+                    handleIncorrectGuess();
                 }
                 break;
 
@@ -118,7 +146,7 @@ let handleGuessButtonClick = function (pokemon) {
                 if (guessField.val().toLowerCase() == 'mr. mime' || guessField.val().toLowerCase() == 'mr mime') {
                     handleCorrectGuess(pokemon);
                 } else {
-                    console.log("you suck");
+                    handleIncorrectGuess();
                 }
                 break;
             
@@ -127,7 +155,7 @@ let handleGuessButtonClick = function (pokemon) {
                 if (guessField.val().toLowerCase() == `${pokemon.name}`) {
                     handleCorrectGuess(pokemon);
                 } else {
-                    console.log("you suck");
+                    handleIncorrectGuess();
                 }
         }
     }
@@ -181,7 +209,7 @@ let handleSkipButtonClick = function (pokemon) {
     }
 
     // Update info text
-    infoText.html(`Skipped! It was ${canonName}!`);
+    infoText.html(`Skipped! It was <strong>${canonName}</strong>!`);
 
     // Fade in info card
     infoCard.fadeIn();
@@ -190,7 +218,9 @@ let handleSkipButtonClick = function (pokemon) {
     $('#guessImage').removeClass('silhouette');
 
     setTimeout(function() {
-        infoCard.fadeOut();
+        // Enable buttons
+        $('#skipButton').attr("disabled", false);
+        $('#guessButton').attr("disabled", false);
 
         // Render new guess card
         getRandomPokemonGuess(getRandomIndex(1,152));

@@ -35,12 +35,26 @@ let getRandomPokemonGuess = async function (id) {
         }
     });
 
-    // Enable buttons
-    $('#skipButton').attr("disabled", false);
-    $('#guessButton').attr("disabled", false);
+    // Hide error text
+    $('#errorText').hide();
+
+    // Fade out info card
+    setTimeout(function() {
+        $('#infoCard').fadeOut();
+    }, 1000);
+}
+
+let getRandomEncouragement = async function () {
+    const result = await axios({
+        method: 'get',
+        url: "https://type.fit/api/quotes"
+    });
+    
+    return result.data[validIndices[getRandomIndex(0, validIndices.length)]].text;
 }
 
 getRandomPokemonGuess(getRandomIndex(1,152));
+getRandomEncouragement();
 
 
 

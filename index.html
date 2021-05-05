@@ -50,10 +50,11 @@
 
                 <div class="columns is-multiline is-centered">
                     <div class="column is-half" id="root"></div>
-                    <div class="column">
-                        <div class="card">
+                    <div class="column is-one-quarter">
+                        <div class="card" id="buttonCard">
                             <div class="card-content">
                                 <div class="content">
+                                    <p id="errorText"></p>
                                     <div class="control">
                                         <input class="input" id="guessField" type="text" placeholder="Who's that Pokémon?">
                                         <button id="skipButton" class="button is-warning">Skip</button>
@@ -62,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card" id="scoreCard">
                             <div class="card-content">
                                 <div class="content">
                                     <p><strong>Correct:</strong> <span id="correctCount">0</span></p>
@@ -71,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="column is-one-quarter"></div>
                 </div>
             </div>
         </div>
@@ -101,9 +103,11 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         </script>
+        
         <script src="node_modules/axios/dist/axios.min.js"></script>
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="js/requests.js"></script>
         <script src="js/render.js"></script>
+        <script src="js/encouragements.js"></script>
     </body>
 </html>

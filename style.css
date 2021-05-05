@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap');
+
 nav {
     background-color: #ffcb05 !important;
+}
+
+body {
+    font-family: 'Assistant', sans-serif;
 }
 
 a img {
@@ -23,12 +29,13 @@ a img {
     border-radius: 10%;
     width: 50%;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     border: 1px solid #ffcb05;
 }
 
 #guessCard {
     border: 1px solid #7a7dd1;
+    float: right;
 }
 
 #infoCard {
@@ -36,11 +43,16 @@ a img {
     border-radius: 20%;
 }
 
-#guessCard {
-    float: right;
+#buttonCard {
+    width: 100%;
+}
+
+#scoreCard {
+    width: 100%;
 }
 
 .button {
+    font-family: 'Assistant', sans-serif;
     margin-top: 10px;
 }
 
