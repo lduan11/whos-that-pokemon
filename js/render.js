@@ -65,6 +65,11 @@ let handleGuessButtonClick = function (pokemon) {
         case (250):
             canonName = 'Ho-Oh'
             break;
+        
+        // Deoxys
+        case (386):
+            canonName = 'Deoxys'
+            break;
 
         // Porygon-Z
         case (474):
@@ -171,6 +176,15 @@ let handleGuessButtonClick = function (pokemon) {
                 }
                 break;
 
+            // Deoxys
+            case (386):
+                if (guessField.val().toLowerCase() == 'deoxys') {
+                    handleCorrectGuess(pokemon);
+                } else {
+                    handleIncorrectGuess();
+                }
+                break;
+
             // Porygon-Z
             case (474):
                 if (guessField.val().toLowerCase() == 'porygon-z' || guessField.val().toLowerCase() == 'porygon z') {
@@ -239,6 +253,11 @@ let handleSkipButtonClick = function (pokemon) {
         canonName = 'Ho-Oh'
         break;
 
+    // Deoxys
+    case (386):
+        canonName = 'Deoxys'
+        break;
+
     // Porygon-Z
     case (474):
         canonName = 'Porygon-Z'
@@ -270,7 +289,6 @@ let handleSkipButtonClick = function (pokemon) {
 }
 
 let handleResetButtonClick = function () {
-
     // Clear guess field
     $('#guessField').val('');
 

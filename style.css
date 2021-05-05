@@ -8,9 +8,9 @@ body {
     font-family: 'Assistant', sans-serif;
 }
 
-.has-background {
-    background-image: url(https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png);
-    min-height: 100vh;
+html {    
+    background: url('https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png') no-repeat center fixed;     
+    background-size: cover;
 }
 
 .has-shadow {
@@ -47,11 +47,10 @@ a img {
 }
 
 #loginCard {
-    width: 480px;
+    width: 40%;
 }
 
 #infoCard {
-    border: 2px solid #000000;
     border-radius: 20%;
 }
 
