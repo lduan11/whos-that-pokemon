@@ -17,6 +17,8 @@ let getRandomPokemonGuess = async function (id) {
     console.log(result.data);
     root.appendChild(renderPokemonGuessCard(result.data));
 
+    $('#infoCard').fadeIn();
+
     // Reassign event listeners
     $("#guessButton").off();
     $("#guessButton").on('click', function () {
@@ -26,6 +28,11 @@ let getRandomPokemonGuess = async function (id) {
     $("#skipButton").off();
     $("#skipButton").on('click', function () {
         handleSkipButtonClick(result.data);
+    });
+
+    $("#resetButton").off();
+    $("#resetButton").on('click', function () {
+        handleResetButtonClick();
     });
 
     $("#guessField").off();
@@ -49,13 +56,11 @@ let getRandomEncouragement = async function () {
         method: 'get',
         url: "https://type.fit/api/quotes"
     });
-    
+
     return result.data[validIndices[getRandomIndex(0, validIndices.length)]].text;
 }
 
-getRandomPokemonGuess(getRandomIndex(1,152));
-getRandomEncouragement();
-
+getRandomPokemonGuess(getRandomIndex(1, 494));
 
 
 // let getAllGenOnePokemon = async function () {

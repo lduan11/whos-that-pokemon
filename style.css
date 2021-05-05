@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap');
 
 nav {
-    background-color: #ffcb05 !important;
+    background-color: transparent !important;
 }
 
 body {
     font-family: 'Assistant', sans-serif;
+}
+
+.has-background {
+    background-image: url(https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png);
+    min-height: 100vh;
+}
+
+.has-shadow {
+    text-shadow: 0px 0px 6px #000000;
 }
 
 a img {
@@ -30,16 +39,19 @@ a img {
     width: 50%;
     text-align: center;
     margin-bottom: 15px;
-    border: 1px solid #ffcb05;
+    border: 2px solid #000000;
 }
 
 #guessCard {
-    border: 1px solid #7a7dd1;
     float: right;
 }
 
+#loginCard {
+    width: 480px;
+}
+
 #infoCard {
-    border: 2px solid #ffcb05;
+    border: 2px solid #000000;
     border-radius: 20%;
 }
 
@@ -57,7 +69,7 @@ a img {
 }
 
 .silhouette {
-    filter: contrast(0) sepia(10%) hue-rotate(200deg) saturate(2000%) brightness(100%);
+    filter: contrast(0) sepia(25%) hue-rotate(195deg) saturate(2000%) brightness(100%);
     opacity: 1;
 }
 

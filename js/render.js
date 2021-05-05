@@ -29,6 +29,7 @@ let handleGuessButtonClick = function (pokemon) {
         // Disable buttons
         $('#skipButton').attr("disabled", true);
         $('#guessButton').attr("disabled", true);
+        $('#resetButton').attr("disabled", true);
 
         // Update 'correct' count
         let correctCount = $('#correctCount');
@@ -59,8 +60,18 @@ let handleGuessButtonClick = function (pokemon) {
         case (122):
             canonName = 'Mr. Mime'
             break;
+
+        // Ho-Oh
+        case (250):
+            canonName = 'Ho-Oh'
+            break;
+
+        // Porygon-Z
+        case (474):
+            canonName = 'Porygon-Z'
+            break;
         
-        // Every other Kanto Region pokemon
+        // Every other pokemon
         default:
             canonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
         }
@@ -78,9 +89,10 @@ let handleGuessButtonClick = function (pokemon) {
             // Enable buttons
             $('#skipButton').attr("disabled", false);
             $('#guessButton').attr("disabled", false);
+            $('#resetButton').attr("disabled", false);
 
             // Render new guess card
-            getRandomPokemonGuess(getRandomIndex(1,152));
+            getRandomPokemonGuess(getRandomIndex(1, 494));
         }, 3000);
     }
 
@@ -149,8 +161,26 @@ let handleGuessButtonClick = function (pokemon) {
                     handleIncorrectGuess();
                 }
                 break;
+
+            // Ho-Oh
+            case (250):
+                if (guessField.val().toLowerCase() == 'ho-oh' || guessField.val().toLowerCase() == 'ho oh') {
+                    handleCorrectGuess(pokemon);
+                } else {
+                    handleIncorrectGuess();
+                }
+                break;
+
+            // Porygon-Z
+            case (474):
+                if (guessField.val().toLowerCase() == 'porygon-z' || guessField.val().toLowerCase() == 'porygon z') {
+                    handleCorrectGuess(pokemon);
+                } else {
+                    handleIncorrectGuess();
+                }
+                break;
             
-            // Every other Kanto Region pokemon
+            // Every other pokemon
             default:
                 if (guessField.val().toLowerCase() == `${pokemon.name}`) {
                     handleCorrectGuess(pokemon);
@@ -172,6 +202,7 @@ let handleSkipButtonClick = function (pokemon) {
     // Disable buttons
     $('#skipButton').attr("disabled", true);
     $('#guessButton').attr("disabled", true);
+    $('#resetButton').attr("disabled", true);
 
     // Update 'skip' count
     let skipCount = $('#skipCount');
@@ -202,8 +233,18 @@ let handleSkipButtonClick = function (pokemon) {
     case (122):
         canonName = 'Mr. Mime'
         break;
+
+    // Ho-Oh
+    case (250):
+        canonName = 'Ho-Oh'
+        break;
+
+    // Porygon-Z
+    case (474):
+        canonName = 'Porygon-Z'
+        break;
     
-    // Every other Kanto Region pokemon
+    // Every other pokemon
     default:
         canonName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
     }
@@ -221,8 +262,23 @@ let handleSkipButtonClick = function (pokemon) {
         // Enable buttons
         $('#skipButton').attr("disabled", false);
         $('#guessButton').attr("disabled", false);
+        $('#resetButton').attr("disabled", false);
 
         // Render new guess card
-        getRandomPokemonGuess(getRandomIndex(1,152));
+        getRandomPokemonGuess(getRandomIndex(1, 494));
     }, 3000);
+}
+
+let handleResetButtonClick = function () {
+
+    // Clear guess field
+    $('#guessField').val('');
+
+    // Update info text
+    $('#infoText').html(`Good luck, trainer!`);
+
+    // Update 'correct' and 'skip' counts
+    $('#correctCount').html('0');
+    $('#skipCount').html('0');
+    getRandomPokemonGuess(getRandomIndex(1, 494));
 }
