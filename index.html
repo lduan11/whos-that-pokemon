@@ -21,7 +21,7 @@
             <div class="navbar-menu">
                 <div class="navbar-end">
                     <p class="navbar-item">
-                        <a class="has-text-white">Pokédex</a>
+                        <a class="has-text-white" onclick="googleLogout()">Pokédex</a>
                     </p>
                     <p class="navbar-item">
                         <a class="has-text-white" href="login.html">Login</a>
@@ -33,7 +33,8 @@
         <div class="container has-text-centered has-text-white has-shadow">
             <p class="is-size-6"><strong class="has-text-white">HOW TO PLAY:</strong></p>
             <p>Guess the <strong class="has-text-white">Pokémon</strong> from its silhouette! Roster covers <strong class='has-text-white'>Generations I-IV</strong>.</p>
-            <p>Mode: Unranked</p>
+            <p><strong class="has-text-white"> Enter</strong>: submit</p>
+            <p><strong class="has-text-white"> /</strong>: skip</p>
         </div>
         
         <div class="container">
@@ -86,6 +87,7 @@
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
 
         <script>
         // Your web app's Firebase configuration
@@ -109,5 +111,6 @@
         <script src="js/requests.js"></script>
         <script src="js/render.js"></script>
         <script src="js/encouragements.js"></script>
+        <script src="js/login.js"></script>
     </body>
 </html>

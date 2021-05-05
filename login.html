@@ -23,9 +23,6 @@
                     <p class="navbar-item">
                         <a class="has-text-white">Pokédex</a>
                     </p>
-                    <p class="navbar-item">
-                        <a class="has-text-white" href="login.html">Login</a>
-                    </p>
                 </div>
             </div>
         </nav>
@@ -39,8 +36,21 @@
                 <div class="columns is-multiline is-centered">
                     <div class="card" id="loginCard">
                         <div class="card-content">
-                            <div class="content">
-                                asdf
+                            <div class="content has-text-centered">
+                                <div class="loginWrapper">
+                                    <div class="buttons">
+                                        <button class="button is-fullwidth" id="googleButton" onclick="googleLogin()">
+                                            <span><img src="images/google-logo.png"></span>
+                                            <span class="loginText">Sign in with Google</span>
+                                        </button>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="button is-fullwidth" id="facebookButton">
+                                            <span><img src="images/Facebook-logo.png"></span>
+                                            <span class="loginText">Sign in with Facebook</span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -57,6 +67,7 @@
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
 
         <script>
         // Your web app's Firebase configuration
@@ -75,10 +86,9 @@
         firebase.analytics();
         </script>
 
-        <!-- <script src="node_modules/axios/dist/axios.min.js"></script>
+        <script src="node_modules/axios/dist/axios.min.js"></script>
         <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="js/requests.js"></script>
         <script src="js/render.js"></script>
-        <script src="js/encouragements.js"></script> -->
+        <script src="js/login.js"></script>
     </body>
 </html>

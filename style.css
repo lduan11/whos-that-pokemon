@@ -14,7 +14,7 @@ html {
 }
 
 .has-shadow {
-    text-shadow: 0px 0px 6px #000000;
+    text-shadow: 0px 0px 5px #000000;
 }
 
 a img {
@@ -47,7 +47,12 @@ a img {
 }
 
 #loginCard {
-    width: 40%;
+    width: 30%;
+}
+
+.loginWrapper {
+    margin: auto;
+    width: 80%;
 }
 
 #infoCard {
@@ -64,6 +69,13 @@ a img {
 
 .button {
     font-family: 'Assistant', sans-serif;
+}
+
+#skipButton {
+    margin-top: 10px;
+}
+
+#guessButton {
     margin-top: 10px;
 }
 
@@ -71,4 +83,14 @@ a img {
     filter: contrast(0) sepia(25%) hue-rotate(195deg) saturate(2000%) brightness(100%);
     opacity: 1;
 }
+
+span img {
+    vertical-align: middle;
+    width: 25px;
+}
+
+.loginText {
+    padding-left: 10px;
+}
+
 

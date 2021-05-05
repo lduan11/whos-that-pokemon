@@ -22,14 +22,21 @@ let handleGuessButtonClick = function (pokemon) {
     let infoCard = $('#infoCard');
     let infoText = $('#infoText');
 
+    let skipButton = $('#skipButton');
+    let guessButton = $('#guessButton');
+    let resetButton = $('#resetButton');
+
     let handleCorrectGuess = function (pokemon) {
         // Clear guess field
         guessField.val('');
 
+        // Disable input field
+        guessField.attr("disabled", true);
+
         // Disable buttons
-        $('#skipButton').attr("disabled", true);
-        $('#guessButton').attr("disabled", true);
-        $('#resetButton').attr("disabled", true);
+        skipButton.attr("disabled", true);
+        guessButton.attr("disabled", true);
+        resetButton.attr("disabled", true);
 
         // Update 'correct' count
         let correctCount = $('#correctCount');
@@ -91,10 +98,16 @@ let handleGuessButtonClick = function (pokemon) {
         $('#guessImage').removeClass('silhouette');
 
         setTimeout(function() {
+            // Enable field
+            guessField.attr("disabled", false);
+
             // Enable buttons
-            $('#skipButton').attr("disabled", false);
-            $('#guessButton').attr("disabled", false);
-            $('#resetButton').attr("disabled", false);
+            skipButton.attr("disabled", false);
+            guessButton.attr("disabled", false);
+            resetButton.attr("disabled", false);
+
+            // Focus onto input field
+            document.getElementById("guessField").focus();
 
             // Render new guess card
             getRandomPokemonGuess(getRandomIndex(1, 494));
@@ -102,32 +115,37 @@ let handleGuessButtonClick = function (pokemon) {
     }
 
     let handleIncorrectGuess = async function () {
+        let errorText = $('#errorText');
+        let guessButton = $('#guessButton');
+
         // Disable guess button
-        $('#guessButton').attr("disabled", true);
+        guessButton.attr("disabled", true);
 
         let encouragement = await getRandomEncouragement();
 
         // Fade in error text
-        $('#errorText').html("Try again! " + `${encouragement}`);
-        $('#errorText').fadeIn();
+        errorText.html("Try again! " + `${encouragement}`);
+        errorText.fadeIn();
 
         setTimeout(function() {
             // Fade out error text
-            $('#errorText').fadeOut();
+            errorText.fadeOut();
 
             // Enable guess button
-            $('#guessButton').attr("disabled", false);
+            guessButton.attr("disabled", false);
         }, 2500);
     }
 
     if (guessField.val().length == 0) {
+        let errorText = $('#errorText');
+
         // Fade in error text
-        $('#errorText').html("Guess can't be empty!");
-        $('#errorText').fadeIn();
+        errorText.html("Guess can't be empty!");
+        errorText.fadeIn();
 
         // Fade out error text
         setTimeout(function() {
-            $('#errorText').fadeOut();
+            errorText.fadeOut();
         }, 1000);
     } else {
         switch(pokemon.id) { // pokemon.name doesn't match canonical name
@@ -210,13 +228,20 @@ let handleSkipButtonClick = function (pokemon) {
     let infoCard = $('#infoCard');
     let infoText = $('#infoText');
 
+    let skipButton = $('#skipButton');
+    let guessButton = $('#guessButton');
+    let resetButton = $('#resetButton');
+
     // Clear guess field
     guessField.val('');
 
+    // Disable input field
+    guessField.attr("disabled", true);
+
     // Disable buttons
-    $('#skipButton').attr("disabled", true);
-    $('#guessButton').attr("disabled", true);
-    $('#resetButton').attr("disabled", true);
+    skipButton.attr("disabled", true);
+    guessButton.attr("disabled", true);
+    resetButton.attr("disabled", true);
 
     // Update 'skip' count
     let skipCount = $('#skipCount');
@@ -278,10 +303,16 @@ let handleSkipButtonClick = function (pokemon) {
     $('#guessImage').removeClass('silhouette');
 
     setTimeout(function() {
+        // Enable field
+        guessField.attr("disabled", false);
+
         // Enable buttons
-        $('#skipButton').attr("disabled", false);
-        $('#guessButton').attr("disabled", false);
-        $('#resetButton').attr("disabled", false);
+        skipButton.attr("disabled", false);
+        guessButton.attr("disabled", false);
+        resetButton.attr("disabled", false);
+
+        // Focus onto input field
+        document.getElementById("guessField").focus();
 
         // Render new guess card
         getRandomPokemonGuess(getRandomIndex(1, 494));

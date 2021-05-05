@@ -56,7 +56,13 @@ let getRandomPokemonGuess = async function (id) {
             if (e.key === 'Enter') {
                 handleGuessButtonClick(result.data);
             }
+
+            if (e.key === '/') {
+                handleSkipButtonClick(result.data);
+            }
         });
+
+        $('#guessField').focus()
 
         // Hide error text
         $('#errorText').hide();
@@ -71,12 +77,16 @@ let getRandomPokemonGuess = async function (id) {
 }
 
 let getRandomEncouragement = async function () {
-    const result = await axios({
-        method: 'get',
-        url: "https://type.fit/api/quotes"
-    });
+    try {
+        const result = await axios({
+            method: 'get',
+            url: "https://type.fit/api/quotes"
+        });
 
-    return result.data[validIndices[getRandomIndex(0, validIndices.length)]].text;
+        return result.data[validIndices[getRandomIndex(0, validIndices.length)]].text;
+    } catch (error) {
+        return "Don't give up!"
+    }
 }
 
 getRandomPokemonGuess(getRandomIndex(1, 494));
