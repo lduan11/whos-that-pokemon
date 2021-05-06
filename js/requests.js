@@ -27,12 +27,19 @@ let getRandomPokemonGuess = async function (id) {
         url: `https://pokeapi.co/api/v2/pokemon/${id}`
     });
 
-    console.log(result.data);
+    if (firstLoad) {
+        if (curUser) {
+            $('#infoText').html(`Good luck, ${curUser.displayName}!`);
+        } else {
+            $('#infoText').html("Good luck, trainer!");
+        }
+    }
 
     // Check if the pokemon image exists (if not, get another random pokemon)
     $.get(`https://pokeres.bastionbot.org/images/pokemon/${result.data.id}.png`).done(function() { 
         root.appendChild(renderPokemonGuessCard(result.data));
 
+        $('#infoCard').removeClass("is-hidden");
         $('#infoCard').fadeIn();
 
         // Reassign event listeners
@@ -62,8 +69,6 @@ let getRandomPokemonGuess = async function (id) {
             }
         });
 
-        $('#guessField').focus()
-
         // Hide error text
         $('#errorText').hide();
 
@@ -89,4 +94,3 @@ let getRandomEncouragement = async function () {
     }
 }
 
-getRandomPokemonGuess(getRandomIndex(1, 494));

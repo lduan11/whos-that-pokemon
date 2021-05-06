@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Who's that Pokémon?</title>
 
-        <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"/>
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"/> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"/>
+        <link rel="stylesheet" href="style.css"/>
     </head>
 
     <body>
@@ -21,10 +22,10 @@
             <div class="navbar-menu">
                 <div class="navbar-end">
                     <p class="navbar-item">
-                        <a class="has-text-white" onclick="googleLogout()">Pokédex</a>
+                        <a class="has-text-white is-hidden" id="navSignout" onclick="googleLogout()">Sign Out</a>
                     </p>
-                    <p class="navbar-item">
-                        <a class="has-text-white" href="login.html">Login</a>
+                    <p class="navbar-item" id="navLogin">
+                        <a class="has-text-white" href="login.html" id="navLogin">Login</a>
                     </p>
                 </div>
             </div>
@@ -33,17 +34,17 @@
         <div class="container has-text-centered has-text-white has-shadow">
             <p class="is-size-6"><strong class="has-text-white">HOW TO PLAY:</strong></p>
             <p>Guess the <strong class="has-text-white">Pokémon</strong> from its silhouette! Roster covers <strong class='has-text-white'>Generations I-IV</strong>.</p>
-            <p><strong class="has-text-white"> Enter</strong>: submit</p>
-            <p><strong class="has-text-white"> /</strong>: skip</p>
+            <p><strong class="has-text-white"> Enter</strong> : submit</p>
+            <p><strong class="has-text-white"> /</strong> : skip</p>
         </div>
         
         <div class="container">
             <div class="guess-container"></div>
                 <div class="columns is-multiline is-centered">
-                    <div class="card" id="infoCard">
+                    <div class="card is-hidden" id="infoCard">
                         <div class="card-content">
                             <div class="content">
-                                <p id="infoText">Good luck, trainer!</p>
+                                <p id="infoText"></p>
                             </div>
                         </div>
                     </div>
@@ -105,9 +106,10 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         </script>
-
-        <script src="node_modules/axios/dist/axios.min.js"></script>
-        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <!-- <script src="node_modules/axios/dist/axios.min.js"></script> -->
+        <!-- <script src="node_modules/jquery/dist/jquery.js"></script> -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="js/requests.js"></script>
         <script src="js/render.js"></script>
         <script src="js/encouragements.js"></script>

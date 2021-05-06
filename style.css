@@ -84,6 +84,11 @@ a img {
     opacity: 1;
 }
 
+.can-auto-size {
+    width: 100%;
+    height: auto;
+}
+
 span img {
     vertical-align: middle;
     width: 25px;

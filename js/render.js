@@ -7,9 +7,9 @@ let renderPokemonGuessCard = function (pokemon) {
     cardContent.classList.add("card-content", "has-text-centered");
 
     let picture = document.createElement('figure');
-    picture.classList.add("image", "silhouette", "is-inline-block");
+    picture.classList.add("image", "can-auto-size", "silhouette", "is-inline-block");
     picture.setAttribute('id', 'guessImage');
-    picture.innerHTML = `<img src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png">`;
+    picture.innerHTML = `<img height="300" width="300" src="https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png">`;
 
     cardContent.appendChild(picture);
     card.appendChild(cardContent);
@@ -111,7 +111,7 @@ let handleGuessButtonClick = function (pokemon) {
 
             // Render new guess card
             getRandomPokemonGuess(getRandomIndex(1, 494));
-        }, 3000);
+        }, 2500);
     }
 
     let handleIncorrectGuess = async function () {
@@ -316,7 +316,7 @@ let handleSkipButtonClick = function (pokemon) {
 
         // Render new guess card
         getRandomPokemonGuess(getRandomIndex(1, 494));
-    }, 3000);
+    }, 2500);
 }
 
 let handleResetButtonClick = function () {
@@ -324,8 +324,12 @@ let handleResetButtonClick = function () {
     $('#guessField').val('');
 
     // Update info text
-    $('#infoText').html(`Good luck, trainer!`);
-
+    if (curUser) {
+        $('#infoText').html(`Good luck, ${curUser.displayName}!`);
+    } else {
+        $('#infoText').html(`Good luck, trainer!`);
+    }
+        
     // Update 'correct' and 'skip' counts
     $('#correctCount').html('0');
     $('#skipCount').html('0');
