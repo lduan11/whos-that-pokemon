@@ -1,7 +1,7 @@
 # Who's that Pokémon?
 Relive your childhood by playing the popular Pokémon guessing minigame: Who's that Pokémon?
 
-Play [here](https://final-app-a98c2.web.app/index.html)!
+Play [here](https://final-app-a98c2.web.app)!
 
 ### Technologies Used:
 - HTML
