@@ -1,4 +1,3 @@
-var provider = new firebase.auth.GoogleAuthProvider();
 var curUser;
 var firstLoad = true;
 
@@ -19,17 +18,23 @@ firebase.auth().onAuthStateChanged(async function (user) {
 });
 
 let googleLogin = function () {
-    firebase.auth().signInWithPopup(provider).then((result) => {
+    let provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(() => {
         window.location.href = "index.html";
-    }).catch((error) => {
-        console.log(error);
     });
 }
 
-let googleLogout = function () {
+let facebookLogin = function () {
+    let provider = new firebase.auth.FacebookAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(() => {
+        window.location.href = "index.html";
+    });
+}
+
+let logout = function () {
     firebase.auth().signOut().then(() => {
         window.location.href = "index.html";
-    }).catch((error) => {
-        console.log(error);
     });
 }

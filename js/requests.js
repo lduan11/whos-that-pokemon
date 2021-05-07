@@ -1,18 +1,3 @@
-// const brokenImages = [
-//     412, 413, 492
-// ];
-
-// Manually exclude indices; this takes too much work to upkeep.
-
-// let getRandomIndex = function (min, max, indicesToExclude) {
-//     // Maximum is exclusive and minimum is inclusive; we exlcude indicesToExclude
-//     let index = null;
-//     while (index === null || indicesToExclude.includes(index)) {
-//         index = Math.floor(Math.random() * (max - min) + min);
-//     }
-//     return index;
-// }
-
 let getRandomIndex = function (min, max) {
     // Minimum is inclusive, maximum is exclusive
     return Math.floor(Math.random() * (max - min) + min);
@@ -93,4 +78,3 @@ let getRandomEncouragement = async function () {
         return "Don't give up!"
     }
 }
-
