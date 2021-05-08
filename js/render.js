@@ -78,6 +78,11 @@ let handleGuessButtonClick = function (pokemon) {
             canonName = 'Deoxys'
             break;
 
+        // Mime Jr.
+        case (439):
+            canonName = 'Mime Jr.'
+            break;
+
         // Porygon-Z
         case (474):
             canonName = 'Porygon-Z'
@@ -203,6 +208,15 @@ let handleGuessButtonClick = function (pokemon) {
                 }
                 break;
 
+            // Mime Jr.
+            case (439):
+                if (guessField.val().toLowerCase() == 'mime jr' || guessField.val().toLowerCase() == 'mime jr.') {
+                    handleCorrectGuess(pokemon);
+                } else {
+                    handleIncorrectGuess();
+                }
+                break;
+
             // Porygon-Z
             case (474):
                 if (guessField.val().toLowerCase() == 'porygon-z' || guessField.val().toLowerCase() == 'porygon z') {
@@ -281,6 +295,11 @@ let handleSkipButtonClick = function (pokemon) {
     // Deoxys
     case (386):
         canonName = 'Deoxys'
+        break;
+
+    // Mime Jr.
+    case (439):
+        canonName = 'Mime Jr.'
         break;
 
     // Porygon-Z
